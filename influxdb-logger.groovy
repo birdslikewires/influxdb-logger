@@ -21,12 +21,6 @@
  *   Unless required by applicable law or agreed to in writing, software distributed under the License is distributed
  *   on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License
  *   for the specific language governing permissions and limitations under the License.
- *
- *   Modifcation History
- *   Date       Name		Change
- *   2019-02-02 Dan Ogorchock	Use asynchttpPost() instead of httpPost() call
- *   2019-09-09 Caleb Morse     Support deferring writes and doing buld writes to influxdb
- *   2022-06-20 Denny Page      Remove nested sections for device selection
  *****************************************************************************************************************/
 definition(
     name: "InfluxDB Logger",
@@ -313,7 +307,7 @@ def updated() {
     state.deviceAttributes << [ devices: 'touchs', attributes: ['touch']]
     state.deviceAttributes << [ devices: 'uvs', attributes: ['ultravioletIndex']]
     state.deviceAttributes << [ devices: 'valves', attributes: ['contact']]
-    state.deviceAttributes << [ devices: 'volts', attributes: ['voltage']]
+    state.deviceAttributes << [ devices: 'volts', attributes: ['voltage','frequency']]
     state.deviceAttributes << [ devices: 'waterSensors', attributes: ['water']]
     state.deviceAttributes << [ devices: 'windowShades', attributes: ['windowShade']]
 
